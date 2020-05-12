@@ -81,7 +81,7 @@ function button.update(dt)
 
 	for i, buttonID in ipairs(button) do
 		if buttonID.flags.active then
-			if love.mouse.isDown("l") and buttonID.onClick then
+			if love.mouse.isDown(1) and buttonID.onClick then
 				if  (my + 1 > buttonID.yPos) and (my < buttonID.yPos + buttonID.height) and
 		      		(mx + 1 > buttonID.xPos) and (mx < buttonID.xPos + buttonID.width) then
 					
@@ -89,7 +89,7 @@ function button.update(dt)
 				end
 			end
 
-			if buttonID.onRelease and buttonID.flags.clicking and not love.mouse.isDown("l") then
+			if buttonID.onRelease and buttonID.flags.clicking and not love.mouse.isDown(1) then
 				button.onRelease(buttonID)
 			end
 
